@@ -2,7 +2,6 @@
 
 **Resources Loading Library for iOS**
 
-
 MFResManager is a compact iOS Utility Library to access ressources in an application.
 This framework is compact, and composed of only three classes:
 
@@ -38,6 +37,6 @@ GitHub       :   <https://github.com/moosefactory>
 
 ##License
 
-MFFoundation is available under the MIT license. See the LICENSE file for more info.
+MFResGetter is available under the MIT license. See the LICENSE file for more info.
 
 ***
