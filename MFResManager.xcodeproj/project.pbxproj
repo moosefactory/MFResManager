@@ -1,0 +1,519 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BC4635DC1CD3B82700C33F28 /* appledoc.sh in Resources */ = {isa = PBXBuildFile; fileRef = BC4635D51CD3B82700C33F28 /* appledoc.sh */; };
+		BC4635DD1CD3B82700C33F28 /* CONTRIBUTE.md in Sources */ = {isa = PBXBuildFile; fileRef = BC4635D61CD3B82700C33F28 /* CONTRIBUTE.md */; };
+		BC4635DE1CD3B82700C33F28 /* headerdoc-make.sh in Resources */ = {isa = PBXBuildFile; fileRef = BC4635D71CD3B82700C33F28 /* headerdoc-make.sh */; };
+		BC4635DF1CD3B82700C33F28 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = BC4635D81CD3B82700C33F28 /* LICENSE */; };
+		BC4635E01CD3B82700C33F28 /* MFResManager.podspec in Resources */ = {isa = PBXBuildFile; fileRef = BC4635D91CD3B82700C33F28 /* MFResManager.podspec */; };
+		BC4635E11CD3B82700C33F28 /* readme-appledoc.md in Sources */ = {isa = PBXBuildFile; fileRef = BC4635DA1CD3B82700C33F28 /* readme-appledoc.md */; };
+		BC4635E21CD3B82700C33F28 /* readme.md in Sources */ = {isa = PBXBuildFile; fileRef = BC4635DB1CD3B82700C33F28 /* readme.md */; };
+		BC4635E91CD3CFD300C33F28 /* MFResCache.h in Headers */ = {isa = PBXBuildFile; fileRef = BC4635E71CD3CFD300C33F28 /* MFResCache.h */; };
+		BC4635EA1CD3CFD300C33F28 /* MFResCache.m in Sources */ = {isa = PBXBuildFile; fileRef = BC4635E81CD3CFD300C33F28 /* MFResCache.m */; };
+		BCF361841CD331F9001A5245 /* MFResManager.h in Headers */ = {isa = PBXBuildFile; fileRef = BCF361831CD331F9001A5245 /* MFResManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BCF3618B1CD331F9001A5245 /* MFResManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCF361801CD331F9001A5245 /* MFResManager.framework */; };
+		BCF361901CD331F9001A5245 /* MFResManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF3618F1CD331F9001A5245 /* MFResManagerTests.m */; };
+		BCF3619E1CD33214001A5245 /* MFKeyResGetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BCF3619A1CD33214001A5245 /* MFKeyResGetter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BCF3619F1CD33214001A5245 /* MFKeyResGetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF3619B1CD33214001A5245 /* MFKeyResGetter.m */; };
+		BCF361A01CD33214001A5245 /* MFResGetter.h in Headers */ = {isa = PBXBuildFile; fileRef = BCF3619C1CD33214001A5245 /* MFResGetter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BCF361A11CD33214001A5245 /* MFResGetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF3619D1CD33214001A5245 /* MFResGetter.m */; };
+		BCF361A41CD33CCA001A5245 /* MFResFileLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = BCF361A21CD33CCA001A5245 /* MFResFileLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BCF361A51CD33CCA001A5245 /* MFResFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF361A31CD33CCA001A5245 /* MFResFileLogger.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BCF3618C1CD331F9001A5245 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BCF361771CD331F9001A5245 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BCF3617F1CD331F9001A5245;
+			remoteInfo = MFResManager;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		BC4635D51CD3B82700C33F28 /* appledoc.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = appledoc.sh; sourceTree = "<group>"; };
+		BC4635D61CD3B82700C33F28 /* CONTRIBUTE.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = CONTRIBUTE.md; sourceTree = "<group>"; };
+		BC4635D71CD3B82700C33F28 /* headerdoc-make.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "headerdoc-make.sh"; sourceTree = "<group>"; };
+		BC4635D81CD3B82700C33F28 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		BC4635D91CD3B82700C33F28 /* MFResManager.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MFResManager.podspec; sourceTree = "<group>"; };
+		BC4635DA1CD3B82700C33F28 /* readme-appledoc.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "readme-appledoc.md"; sourceTree = "<group>"; };
+		BC4635DB1CD3B82700C33F28 /* readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = readme.md; sourceTree = "<group>"; };
+		BC4635E71CD3CFD300C33F28 /* MFResCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFResCache.h; sourceTree = "<group>"; };
+		BC4635E81CD3CFD300C33F28 /* MFResCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFResCache.m; sourceTree = "<group>"; };
+		BCF361801CD331F9001A5245 /* MFResManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MFResManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BCF361831CD331F9001A5245 /* MFResManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFResManager.h; sourceTree = "<group>"; };
+		BCF361851CD331F9001A5245 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BCF3618A1CD331F9001A5245 /* MFResManagerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MFResManagerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BCF3618F1CD331F9001A5245 /* MFResManagerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFResManagerTests.m; sourceTree = "<group>"; };
+		BCF361911CD331F9001A5245 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BCF3619A1CD33214001A5245 /* MFKeyResGetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFKeyResGetter.h; sourceTree = "<group>"; };
+		BCF3619B1CD33214001A5245 /* MFKeyResGetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFKeyResGetter.m; sourceTree = "<group>"; };
+		BCF3619C1CD33214001A5245 /* MFResGetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFResGetter.h; sourceTree = "<group>"; };
+		BCF3619D1CD33214001A5245 /* MFResGetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFResGetter.m; sourceTree = "<group>"; };
+		BCF361A21CD33CCA001A5245 /* MFResFileLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFResFileLogger.h; sourceTree = "<group>"; };
+		BCF361A31CD33CCA001A5245 /* MFResFileLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFResFileLogger.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BCF3617C1CD331F9001A5245 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BCF361871CD331F9001A5245 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BCF3618B1CD331F9001A5245 /* MFResManager.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BC4635D41CD3B82700C33F28 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				BC4635D51CD3B82700C33F28 /* appledoc.sh */,
+				BC4635D61CD3B82700C33F28 /* CONTRIBUTE.md */,
+				BC4635D71CD3B82700C33F28 /* headerdoc-make.sh */,
+				BC4635D81CD3B82700C33F28 /* LICENSE */,
+				BC4635D91CD3B82700C33F28 /* MFResManager.podspec */,
+				BC4635DA1CD3B82700C33F28 /* readme-appledoc.md */,
+				BC4635DB1CD3B82700C33F28 /* readme.md */,
+			);
+			path = "Support Files";
+			sourceTree = "<group>";
+		};
+		BCF361761CD331F9001A5245 = {
+			isa = PBXGroup;
+			children = (
+				BC4635D41CD3B82700C33F28 /* Support Files */,
+				BCF361821CD331F9001A5245 /* MFResManager */,
+				BCF3618E1CD331F9001A5245 /* MFResManagerTests */,
+				BCF361811CD331F9001A5245 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BCF361811CD331F9001A5245 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BCF361801CD331F9001A5245 /* MFResManager.framework */,
+				BCF3618A1CD331F9001A5245 /* MFResManagerTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BCF361821CD331F9001A5245 /* MFResManager */ = {
+			isa = PBXGroup;
+			children = (
+				BCF361831CD331F9001A5245 /* MFResManager.h */,
+				BCF3619A1CD33214001A5245 /* MFKeyResGetter.h */,
+				BCF3619B1CD33214001A5245 /* MFKeyResGetter.m */,
+				BCF3619C1CD33214001A5245 /* MFResGetter.h */,
+				BCF3619D1CD33214001A5245 /* MFResGetter.m */,
+				BC4635E71CD3CFD300C33F28 /* MFResCache.h */,
+				BC4635E81CD3CFD300C33F28 /* MFResCache.m */,
+				BCF361A21CD33CCA001A5245 /* MFResFileLogger.h */,
+				BCF361A31CD33CCA001A5245 /* MFResFileLogger.m */,
+				BCF361851CD331F9001A5245 /* Info.plist */,
+			);
+			path = MFResManager;
+			sourceTree = "<group>";
+		};
+		BCF3618E1CD331F9001A5245 /* MFResManagerTests */ = {
+			isa = PBXGroup;
+			children = (
+				BCF3618F1CD331F9001A5245 /* MFResManagerTests.m */,
+				BCF361911CD331F9001A5245 /* Info.plist */,
+			);
+			path = MFResManagerTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		BCF3617D1CD331F9001A5245 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BCF361A01CD33214001A5245 /* MFResGetter.h in Headers */,
+				BCF361841CD331F9001A5245 /* MFResManager.h in Headers */,
+				BCF3619E1CD33214001A5245 /* MFKeyResGetter.h in Headers */,
+				BCF361A41CD33CCA001A5245 /* MFResFileLogger.h in Headers */,
+				BC4635E91CD3CFD300C33F28 /* MFResCache.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXLegacyTarget section */
+		BC4635E31CD3C3B500C33F28 /* Build Documentation */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "$(ACTION)";
+			buildConfigurationList = BC4635E41CD3C3B500C33F28 /* Build configuration list for PBXLegacyTarget "Build Documentation" */;
+			buildPhases = (
+			);
+			buildToolPath = "./Support Files/headerdoc-make.sh";
+			buildWorkingDirectory = "";
+			dependencies = (
+			);
+			name = "Build Documentation";
+			passBuildSettingsInEnvironment = 1;
+			productName = "Build Documentation";
+		};
+/* End PBXLegacyTarget section */
+
+/* Begin PBXNativeTarget section */
+		BCF3617F1CD331F9001A5245 /* MFResManager */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BCF361941CD331F9001A5245 /* Build configuration list for PBXNativeTarget "MFResManager" */;
+			buildPhases = (
+				BCF3617B1CD331F9001A5245 /* Sources */,
+				BCF3617C1CD331F9001A5245 /* Frameworks */,
+				BCF3617D1CD331F9001A5245 /* Headers */,
+				BCF3617E1CD331F9001A5245 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MFResManager;
+			productName = MFResManager;
+			productReference = BCF361801CD331F9001A5245 /* MFResManager.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		BCF361891CD331F9001A5245 /* MFResManagerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BCF361971CD331F9001A5245 /* Build configuration list for PBXNativeTarget "MFResManagerTests" */;
+			buildPhases = (
+				BCF361861CD331F9001A5245 /* Sources */,
+				BCF361871CD331F9001A5245 /* Frameworks */,
+				BCF361881CD331F9001A5245 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BCF3618D1CD331F9001A5245 /* PBXTargetDependency */,
+			);
+			name = MFResManagerTests;
+			productName = MFResManagerTests;
+			productReference = BCF3618A1CD331F9001A5245 /* MFResManagerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BCF361771CD331F9001A5245 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = MooseFactory;
+				TargetAttributes = {
+					BC4635E31CD3C3B500C33F28 = {
+						CreatedOnToolsVersion = 7.3;
+					};
+					BCF3617F1CD331F9001A5245 = {
+						CreatedOnToolsVersion = 7.3;
+					};
+					BCF361891CD331F9001A5245 = {
+						CreatedOnToolsVersion = 7.3;
+					};
+				};
+			};
+			buildConfigurationList = BCF3617A1CD331F9001A5245 /* Build configuration list for PBXProject "MFResManager" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = BCF361761CD331F9001A5245;
+			productRefGroup = BCF361811CD331F9001A5245 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BCF3617F1CD331F9001A5245 /* MFResManager */,
+				BCF361891CD331F9001A5245 /* MFResManagerTests */,
+				BC4635E31CD3C3B500C33F28 /* Build Documentation */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BCF3617E1CD331F9001A5245 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BC4635DF1CD3B82700C33F28 /* LICENSE in Resources */,
+				BC4635DE1CD3B82700C33F28 /* headerdoc-make.sh in Resources */,
+				BC4635E01CD3B82700C33F28 /* MFResManager.podspec in Resources */,
+				BC4635DC1CD3B82700C33F28 /* appledoc.sh in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BCF361881CD331F9001A5245 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BCF3617B1CD331F9001A5245 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BC4635EA1CD3CFD300C33F28 /* MFResCache.m in Sources */,
+				BC4635E11CD3B82700C33F28 /* readme-appledoc.md in Sources */,
+				BCF361A51CD33CCA001A5245 /* MFResFileLogger.m in Sources */,
+				BCF361A11CD33214001A5245 /* MFResGetter.m in Sources */,
+				BCF3619F1CD33214001A5245 /* MFKeyResGetter.m in Sources */,
+				BC4635E21CD3B82700C33F28 /* readme.md in Sources */,
+				BC4635DD1CD3B82700C33F28 /* CONTRIBUTE.md in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BCF361861CD331F9001A5245 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BCF361901CD331F9001A5245 /* MFResManagerTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BCF3618D1CD331F9001A5245 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BCF3617F1CD331F9001A5245 /* MFResManager */;
+			targetProxy = BCF3618C1CD331F9001A5245 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		BC4635E51CD3C3B500C33F28 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEBUGGING_SYMBOLS = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		BC4635E61CD3C3B500C33F28 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		BCF361921CD331F9001A5245 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/MFResManager\"";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		BCF361931CD331F9001A5245 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/MFResManager\"";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		BCF361951CD331F9001A5245 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = MFResManager/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				PRODUCT_BUNDLE_IDENTIFIER = com.moosefactory.MFResManager;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		BCF361961CD331F9001A5245 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = MFResManager/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				PRODUCT_BUNDLE_IDENTIFIER = com.moosefactory.MFResManager;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		BCF361981CD331F9001A5245 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = MFResManagerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.moosefactory.MFResManagerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		BCF361991CD331F9001A5245 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = MFResManagerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.moosefactory.MFResManagerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BC4635E41CD3C3B500C33F28 /* Build configuration list for PBXLegacyTarget "Build Documentation" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BC4635E51CD3C3B500C33F28 /* Debug */,
+				BC4635E61CD3C3B500C33F28 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		BCF3617A1CD331F9001A5245 /* Build configuration list for PBXProject "MFResManager" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BCF361921CD331F9001A5245 /* Debug */,
+				BCF361931CD331F9001A5245 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BCF361941CD331F9001A5245 /* Build configuration list for PBXNativeTarget "MFResManager" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BCF361951CD331F9001A5245 /* Debug */,
+				BCF361961CD331F9001A5245 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BCF361971CD331F9001A5245 /* Build configuration list for PBXNativeTarget "MFResManagerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BCF361981CD331F9001A5245 /* Debug */,
+				BCF361991CD331F9001A5245 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BCF361771CD331F9001A5245 /* Project object */;
+}
