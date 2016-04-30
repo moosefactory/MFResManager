@@ -61,6 +61,8 @@ It shows how to pack a cocoapod spec and automatically build a documentation in 
 
 So if anyone can teach me anything more on the subject, I'll be glad. 
 
+It also embeds a CocoaPod configuration file (podspec).
+
 ###Installation
 ---------------
 MFResManager is available through CocoaPods. To install it, simply add the following line to your Podfile:
