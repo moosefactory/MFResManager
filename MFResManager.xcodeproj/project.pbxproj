@@ -34,10 +34,10 @@
 		BC0DD07F1CD4236000F7500A /* CONTRIBUTE.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = CONTRIBUTE.md; sourceTree = "<group>"; };
 		BC0DD0801CD4236000F7500A /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		BC0DD0A21CD4237900F7500A /* readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = readme.md; sourceTree = "<group>"; };
-		BC4635D51CD3B82700C33F28 /* appledoc.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = appledoc.sh; sourceTree = "<group>"; };
-		BC4635D71CD3B82700C33F28 /* headerdoc-make.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "headerdoc-make.sh"; sourceTree = "<group>"; };
-		BC4635D91CD3B82700C33F28 /* MFResManager.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MFResManager.podspec; sourceTree = "<group>"; };
-		BC4635DA1CD3B82700C33F28 /* readme-appledoc.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "readme-appledoc.md"; sourceTree = "<group>"; };
+		BC310E0B1CD529F0009CE91B /* appledoc.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = appledoc.sh; sourceTree = "<group>"; };
+		BC310E0C1CD529F0009CE91B /* headerdoc-make.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "headerdoc-make.sh"; sourceTree = "<group>"; };
+		BC310E231CD529F0009CE91B /* readme-appledoc.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "readme-appledoc.md"; sourceTree = "<group>"; };
+		BC310E331CD52A0E009CE91B /* MFResManager.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = MFResManager.podspec; sourceTree = "<group>"; };
 		BC4635E71CD3CFD300C33F28 /* MFResCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFResCache.h; sourceTree = "<group>"; };
 		BC4635E81CD3CFD300C33F28 /* MFResCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFResCache.m; sourceTree = "<group>"; };
 		BCF361801CD331F9001A5245 /* MFResManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MFResManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -73,13 +73,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		BC4635D41CD3B82700C33F28 /* Appledoc */ = {
+		BC310E0A1CD529F0009CE91B /* Appledoc */ = {
 			isa = PBXGroup;
 			children = (
-				BC4635D51CD3B82700C33F28 /* appledoc.sh */,
-				BC4635D71CD3B82700C33F28 /* headerdoc-make.sh */,
-				BC4635D91CD3B82700C33F28 /* MFResManager.podspec */,
-				BC4635DA1CD3B82700C33F28 /* readme-appledoc.md */,
+				BC310E0B1CD529F0009CE91B /* appledoc.sh */,
+				BC310E0C1CD529F0009CE91B /* headerdoc-make.sh */,
+				BC310E231CD529F0009CE91B /* readme-appledoc.md */,
 			);
 			path = Appledoc;
 			sourceTree = "<group>";
@@ -90,7 +89,8 @@
 				BC0DD07F1CD4236000F7500A /* CONTRIBUTE.md */,
 				BC0DD0801CD4236000F7500A /* LICENSE */,
 				BC0DD0A21CD4237900F7500A /* readme.md */,
-				BC4635D41CD3B82700C33F28 /* Appledoc */,
+				BC310E0A1CD529F0009CE91B /* Appledoc */,
+				BC310E331CD52A0E009CE91B /* MFResManager.podspec */,
 				BCF361821CD331F9001A5245 /* MFResManager */,
 				BCF3618E1CD331F9001A5245 /* MFResManagerTests */,
 				BCF361811CD331F9001A5245 /* Products */,

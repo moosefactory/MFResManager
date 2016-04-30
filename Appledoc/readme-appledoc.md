@@ -7,9 +7,6 @@ MooseFactory Software
 # MFResManager
 **Resources Loading Library for iOS**
 
-A tester project can be found here:
-<https://github.com/moosefactory/MFResManager-Tester>
-
 ## Introduction
 ---------------
 **MFResManager** is a compact iOS Utility Library providing an alternate way to access ressources in an application.
@@ -52,39 +49,14 @@ It can be usefull to any developer, but was originaly designed to ease the debug
 - Provides a cache system to avoid multiple loading of the same resource.
 
 
-##Developers
----------------
-The MFResManager xCode project is carefully packed.
-It shows how to pack a cocoapod spec and automatically build a documentation in a dedicated target using Appledoc and External Build System target type.
-
-**A lot of things are still out my understanding in the way AppleDocs are generated**
-
-So if anyone can teach me anything more on the subject, I'll be glad. 
-
-###Installation
----------------
-MFResManager is available through CocoaPods. To install it, simply add the following line to your Podfile:
-
->pod 'MFResManager'
-
-###Contribution
----------------
-
-If you wish to contribute, check the CONTRIBUTE<CONTRIBUTE.md> file for more information.
-
-The point of this library is to keep a tight scope, be as fast and as reliable as possible. So if you plan to add many features, please do your way with your own branche.
-
-If you think a feature is a must-have, propose it!
-
-
-###License
----------------
+##License
 
 MFResManager is available under the MIT license. See the LICENSE file for more info.
 
+***
 
 ##Author
----------------
+
 Tristan Leblanc <tristan@moosefactory.eu>
 
 Twitter     :	<https://www.twitter.com/tristanleblanc>  
@@ -92,5 +64,5 @@ Google+     :	<https://plus.google.com/+TristanLeblanc>
 
 GitHub      :   <https://github.com/moosefactory>
 
----------------
+***
 
