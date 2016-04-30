@@ -62,6 +62,8 @@
 
 +(instancetype)defaultMediaGetter;
 
+-(id)initWithTocName:(NSString*)name;
+
 /**
  @method entryForKey:group:language:
  @abstract return the entry with given key, group and language stored in the toc dictionary

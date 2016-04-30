@@ -44,7 +44,7 @@
     static dispatch_once_t once;
     static id sharedInstance;
     dispatch_once(&once, ^{
-        sharedInstance = [[self alloc] init];
+        sharedInstance = [[self alloc] initWithTocName:@"toc"];
     });
     return sharedInstance;
 }
@@ -54,9 +54,23 @@
     if (self = [super init]) {
         self.tocDictionaryName = @"toc";
         self.defaultLanguage = @"en";
-        tocDictionary = [NSDictionary dictionaryWithContentsOfFile:[self tocDictionaryPath]];
     }
     return self;
+}
+
+-(id)initWithTocName:(NSString*)name
+{
+    if ( self = [super init]) {
+        self.defaultLanguage = @"en";
+        self.tocDictionaryName = name;
+    }
+    return self;
+}
+
+-(void)setTocDictionaryName:(NSString *)tocDictionaryName
+{
+    _tocDictionaryName = tocDictionaryName;
+    tocDictionary = [NSDictionary dictionaryWithContentsOfFile:[self tocDictionaryPath]];
 }
 
 #pragma mark - Properties
