@@ -29,18 +29,14 @@
  */
 
 
-#define MFResLog        (self.debugMode & MFResGetterLog )
-#define MFResFileLog    (self.debugMode & MFResGetterLogFile )
-#define MFResBreaks     (self.debugMode & MFResGetterBreaks )
-
-#define MFResUseDefault (self.behavior & MFResGetterUseDefault )
-#define MFResSearchRoot (self.behavior & MFResGetterSearchRoot )
 
 #import "MFResGetter.h"
 
 #import "MFResCache.h"
 
 static NSArray* imageTypes;
+static NSArray* videoTypes;
+static NSArray* audioTypes;
 
 @implementation MFResGetter
 
@@ -52,6 +48,8 @@ static NSArray* imageTypes;
     static id sharedInstance;
     dispatch_once(&once, ^{
         imageTypes = [NSArray arrayWithObjects:@"png",@"PNG",@"jpg",@"JPG",@"jpeg",@"JPEG",@"tif",@"TIF",@"tiff",@"TIFF",NULL];
+        videoTypes = [NSArray arrayWithObjects:@"mp4",@"MP4",@"m4v",@"M4V",@"avi",@"AVI",@"mpeg4",@"MPEG4",NULL];
+        audioTypes = [NSArray arrayWithObjects:@"mp3",@"MP3",@"aif",@"AIF",@"aiff",@"AIFF",NULL];
         sharedInstance = [[self alloc] init];
     });
     return sharedInstance;
@@ -151,7 +149,7 @@ static NSArray* imageTypes;
 
 -(UIImage*)imageWithPath:(NSString*)path log:(BOOL)log returnsDefault:(BOOL)returnsDefault
 {
-    UIImage* image = [MFResCache cachedResourceWithPath:path];
+    UIImage* image = (UIImage*)[MFResCache cachedResourceWithPath:path];
     if (!image) {
         NSURL* imageURL = [self fileURLWithPath:path log:log];
         if (imageURL) {
@@ -198,7 +196,7 @@ static NSArray* imageTypes;
     }
     
     if ( log && MFResLog && !url) {
-        MFRLog(@"ERROR - fileURLWithPath - URL is NULL for Path \"%@\"",path);
+        MFRFileLog(@"ResGetter.log",@"ERROR - fileURLWithPath - URL is NULL for Path \"%@\"",path);
         if ( MFResBreaks ) {
             assert(url);
         }

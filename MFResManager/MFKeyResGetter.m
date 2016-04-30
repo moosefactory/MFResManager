@@ -34,12 +34,12 @@
 
 @implementation MFKeyResGetter
 {
-    NSDictionary*   mediasDictionary;
+    NSDictionary*   tocDictionary;
 }
 
 #pragma mark - Init
 
-+(instancetype)defaultKeyMediaGetter
++(instancetype)defaultMediaGetter
 {
     static dispatch_once_t once;
     static id sharedInstance;
@@ -52,135 +52,172 @@
 
 - (id)init {
     if (self = [super init]) {
-        mediasDictionary = [NSDictionary dictionaryWithContentsOfFile:[self mediasDictionaryPath]];
+        self.tocDictionaryName = @"toc";
+        self.defaultLanguage = @"en";
+        tocDictionary = [NSDictionary dictionaryWithContentsOfFile:[self tocDictionaryPath]];
     }
     return self;
 }
 
 #pragma mark - Properties
 
--(NSString*)mediasDictionaryPath
+-(NSString*)tocDictionaryPath
 {
-    NSString* path = [self.bundle pathForResource:@"medias" ofType:@"plist"];
-#if DEBUG_MEDIAGETTER
-    if (!path) NSLog(@"ERROR - Media Dictionary not present");
-#if DEBUG_MEDIAGETTER_BREAKS
-    assert(path);
-#endif
-#endif
+    NSString* path = [self pathForResource:self.tocDictionaryName ofType:@"plist"];
+    if ( MFResLog && !path) {
+        MFRFileLog(@"MFResGetter.log",@"ERROR - Resources TOC \"%@\" not present.",path);
+        MFResBreaksNULL(path);
+    }
     return path;
 }
 
-
 #pragma mark - Key Accessors
 
-
--(NSString*)stringForKey:(NSString*)key group:(NSString*)group
++(id)entryForKey:(NSString*)key group:(NSString*)group language:(NSString*)language
 {
-#if DEBUG_MEDIAGETTER
-    if (!key) NSLog(@"ERROR - pathForKey - Key is NULL");
-    if (!group) NSLog(@"ERROR - pathForKey - Group is NULL");
-#if DEBUG_MEDIAGETTER_BREAKS
-    assert(key);
-    assert(group);
-#endif
-#endif
-    if (group) {
-        NSDictionary* groupDictinary = [mediasDictionary objectForKey:group];
-#if DEBUG_MEDIAGETTER
-        if (!groupDictinary) NSLog(@"ERROR - Group \"%@\" not in media dictionary.",group);
-#if DEBUG_MEDIAGETTER_BREAKS
-        assert(groupDictinary);
-#endif
-#endif
-        if (groupDictinary && key) {
-            NSString* string = [groupDictinary objectForKey:key];
-#if DEBUG_MEDIAGETTER
-            if (!string) NSLog(@"ERROR - Key \"%@\" not in media dictionary ( group \"%@\"",key,group);
-#if DEBUG_MEDIAGETTER_BREAKS
-            assert(string);
-#endif
-#endif
-            return string;
+    return [[MFKeyResGetter defaultMediaGetter] entryForKey:key group:group language:language];
+}
+
+-(id)entryForKey:(NSString*)key group:(NSString*)group language:(NSString*)language
+{
+    if (!key) {
+        if ( MFResLog ) {
+            MFRFileLog(@"MFResGetter.log",@"ERROR - stringForKey - Key is NULL");
+            MFResBreaksNULL(key);
         }
+        return NULL;
+    }
+    
+    NSDictionary* groupDictionary;
+    if (group) {
+        groupDictionary = (NSDictionary*)[tocDictionary objectForKey:group];
+        if ( MFResLog && !groupDictionary) {
+            MFRFileLog(@"ResGetter.log", @"ERROR - Group \"%@\" not in media dictionary.",group);
+            MFResBreaksNULL(groupDictionary);
+        }
+    } else groupDictionary = tocDictionary;
+    
+    id entry = [groupDictionary objectForKey:key];
+    if (!entry) {
+        MFRFileLog(@"MFResGetter.log",@"ERROR - Entry with key \"%@\" in toc dictionary %@.",key,
+                   group ? [NSString stringWithFormat:@"( Group \"%@\" )",group] : @"");
+        if ( MFResBreaks ) {
+            assert(groupDictionary);
+        }
+        return NULL;
+    }
+    
+    // If entry is a dictionary, try to return the object in the given language
+    if ([entry isKindOfClass:[NSDictionary class]]) {
+        
+        id localizedEntry;
+        NSString* languageCode = language ? language : self.defaultLanguage;
+        // Try to fetch localized version
+        if ( languageCode && ![languageCode isEqualToString:self.defaultLanguage]) {
+            localizedEntry = [entry objectForKey:language];
+            if ( MFResLog && !localizedEntry ) {
+                MFRFileLog(@"MFResGetter.log",@"WARNING - String for key \"%@\" is not available in language \"%@\" in group \"%@\"",key,languageCode,group);
+            }
+        }
+        
+        // Try to fetch english version
+        if (!localizedEntry) {
+            localizedEntry = [entry objectForKey:self.defaultLanguage];
+            if ( MFResLog && !localizedEntry) {
+                MFRFileLog(@"MFResGetter.log",@"ERROR - Entry for key \"%@\" in group \"%@\" is not available in default language (%@)",key,group,self.defaultLanguage);
+                MFResBreaksNULL(localizedEntry);
+            
+            }
+        }
+        
+        return localizedEntry;
+    }
+    
+    return entry;
+}
+
+#pragma mark - Text Loading
+
+
++(NSString*)textForKey:(NSString*)key
+{
+    return [[MFKeyResGetter defaultMediaGetter] textForKey:key];
+}
+
+-(NSString*)textForKey:(NSString*)key
+{
+    return [self textForKey:key group:NULL language:NULL];
+}
+
++(NSString*)textForKey:(NSString*)key group:(NSString*)group language:(NSString*)language
+{
+    return [[MFKeyResGetter defaultMediaGetter] textForKey:key group:group language:language];
+}
+
+-(NSString*)textForKey:(NSString*)key group:(NSString*)group language:(NSString*)language
+{
+    id object = [[MFKeyResGetter defaultMediaGetter] entryForKey:key group:group language:language];
+    if ([object isKindOfClass:[NSString class]]) {
+        return (NSString*)object;
+    }
+    if ( MFResLog ) {
+        if (object) {
+            MFRFileLog(@"Missing Keys.log", @"ERROR - Object for key \"%@\" in group \"%@\" [%@] is not a text", key, group, language );
+        } else {
+            MFRFileLog(@"Missing Keys.log", @"ERROR - Text for key \"%@\" in group \"%@\" [%@]", key, group, language );
+        }
+        MFResBreaksNULL(0);
     }
     return NULL;
 }
 
--(NSString*)entryWithKey:(NSString*)key group:(NSString*)group language:(NSString*)language
+#pragma mark - Image Loading
+
+
++(UIImage*)imageForKey:(NSString*)key
 {
-    id entry = [self stringForKey:key group:group];
-    if (!entry) return NULL;
-    
-    NSString* string = NULL;
-    
-    // If entry is a text, just return it
-    if ([entry isKindOfClass:[NSString class]]) {
-        string = (NSString*)entry;
-    }
-    
-    // If entry is a dictionary, try to return the object in the given language
-    else if ([entry isKindOfClass:[NSDictionary class]]) {
-        
-        // Try to fetch localized version
-        if ( language && ![language isEqualToString:@"en"]) {
-            string = [entry objectForKey:language];
-#if DEBUG_MEDIAGETTER
-            if (!string) NSLog(@"WARNING - String for key \"%@\" is not available in language \"%@\" in group \"%@\"",key,language,group);
-#endif
+    return [[MFKeyResGetter defaultMediaGetter] imageForKey:key group:NULL language:NULL];
+}
+
+-(UIImage*)imageForKey:(NSString*)key
+{
+    return [self imageForKey:key group:NULL language:NULL];
+}
+
++(UIImage*)imageForKey:(NSString*)key group:(NSString*)group language:(NSString*)language
+{
+    return [[MFKeyResGetter defaultMediaGetter] imageForKey:key group:group language:language];
+}
+
+-(UIImage*)imageForKey:(NSString*)key group:(NSString*)group language:(NSString*)language
+{
+    id object = [self entryForKey:key group:group language:language];
+    if (!object || ![object isKindOfClass:[NSString class]]) {
+        if ( MFResLog ) {
+            if (object) {
+            MFRFileLog(@"Missing Keys.log", @"ERROR - Image Name for key \"%@\" in group \"%@\" [%@] is not a string", key, group, language );
+            } else {
+                MFRFileLog(@"Missing Keys.log", @"ERROR - Missing Image Name for key \"%@\" in group \"%@\" [%@]", key, group, language );
+            }
+            MFResBreaksNULL(0);
         }
-        
-        // Try to fetch english version
-        if (!string) {
-            string = [entry objectForKey:@"en"];
-#if DEBUG_MEDIAGETTER
-            if (!string) NSLog(@"ERROR - String for key \"%@\" in group \"%@\" is not available in English",key,group);
-#if DEBUG_MEDIAGETTER_BREAKS
-            assert(string);
-#endif
-#endif
-        }
-        
-        // Entry object class is not string or dict - error
-        else {
-#if DEBUG_MEDIAGETTER
-            NSLog( @"ERROR - Wrong Dictionary Entry class (%@) for key \"%@\" in group \"%@\"", NSStringFromClass([text class]), key, group );
-#if DEBUG_MEDIAGETTER_BREAKS
-            assert(0);
-#endif
-#endif
+        if ( MFResUseDefault ) {
+            return [self defaultImage];
         }
     }
-    return string;
-}
-
     
--(NSString*)textWithKey:(NSString*)key language:(NSString*)language
-{
-    NSString* text = [self entryWithKey:key group:@"texts" language:language];
-    return text;
+    return [self imageNamed:(NSString*)object];
 }
 
-
--(UIImage*)imageWithKey:(NSString*)key language:(NSString*)language
+/*
+-(NSURL*)videoWithKey:(NSString*)key group:(NSString*)group language:(NSString*)language
 {
-    NSString *imageName = [self entryWithKey:key group:@"images" language:language];
-    imageName = [imageName stringByDeletingPathExtension];
-
-    return [self imageNamed:imageName];
+    NSString* string = [self stringForKey:key group:group language:language];
+    if (string) {
+        return [self videoNamed:string];
+    }
+    return NULL;
 }
-
-
--(NSURL*)videoWithKey:(NSString*)key language:(NSString*)language
-{
-    NSString *videoName = [self entryWithKey:key group:@"videos" language:language];
-    NSString* videoType = [videoName pathExtension];
-    videoName = [videoName stringByDeletingPathExtension];
-    
-    NSString* moviePath = [self pathForResource:videoName ofType:videoType];
-    
-    return [MFResGetter fileURLWithPath:moviePath];
-}
-
+*/
 
 @end

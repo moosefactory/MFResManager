@@ -28,7 +28,10 @@
  THE SOFTWARE.
  */
 
-/** 
+/*!
+ @header
+ @abstract
+ Provides access to (localized) resources through a table of content.
  @discussion MFKeyResGetter implements an access to localized ressources through a TOC mechanism.
  
  ## Version information
@@ -45,12 +48,160 @@
  */
 
 #import <UIKit/UIKit.h>
-
 #import "MFResGetter.h"
+
+
+/*!
+ @abstract   Provides access to (localized) resources through a table of content.
+ @discussion    MFKeyResGetter if a MFResGetter subclass and so provides all of its features.
+ It adds resource loading via a table of content stored as a PLIST in the baseDirectory or root.
+ It also adds support for localized resources
+ */
 
 @interface MFKeyResGetter : MFResGetter
 
++(instancetype)defaultMediaGetter;
 
-@property(nonatomic,strong) NSString* TOCDictionaryName;
+/**
+ @method entryForKey:group:language:
+ @abstract return the entry with given key, group and language stored in the toc dictionary
+ This method provide strong checking and logging to the console or in a log file.
+ 
+ This static method is called on the shared instance.
+ 
+ @param key The key of the resource to load in the TOC dictionary
+ @param group The group in the TOC dictionary - Pass NULL to search in the TOC root
+ @param language The language of the resource - Pass NULL to search for default language
+ 
+ @return The object in the toc dictionary
+ */
+
++(id)entryForKey:(NSString*)key group:(NSString*)group language:(NSString*)language;
+
+/**
+ @method entryForKey:group:language:
+ @abstract return the entry with given key, group and language stored in the toc dictionary
+ This method provide strong checking and logging to the console or in a log file.
+  
+ @param key The key of the resource to load in the TOC dictionary
+ @param group The group in the TOC dictionary - Pass NULL to search in the TOC root
+ @param language The language of the resource - Pass NULL to search for default language
+ 
+ @return The object in the toc dictionary
+ */
+
+-(id)entryForKey:(NSString*)key group:(NSString*)group language:(NSString*)language;
+
+#pragma mark - Text Loading
+
+/**
+ @method textForKey:
+ @abstract return the text stored in the dictionary, at root level
+ This method provide strong checking and logging to the console or in a log file.
+ This static method is called on the shared instance.
+ @param key The key of the text to load in the TOC dictionary
+ @return The text for given key, as a NSString*
+ */
+
++(NSString*)textForKey:(NSString*)key;
+
+/**
+ @method textForKey:
+ @abstract return the text stored in the dictionary, at root level
+ This method provide strong checking and logging to the console or in a log file.
+ @param key The key of the text to load in the TOC dictionary
+ @return The text for given key, as a NSString*
+ */
+
+-(NSString*)textForKey:(NSString*)key;
+
+
+/**
+ @method textForKey:group:language:
+ @abstract return the text stored in the dictionary in the given group
+ This method provide strong checking and logging to the console or in a log file.
+ This static method is called on the shared instance.
+ @param key The key of the text to load in the TOC dictionary
+ @param group The group in the TOC dictionary - Pass NULL to search in the TOC root
+ @param language The language of the resource - Pass NULL to search for default language
+ @return The text for given key, as a NSString*
+ */
+
++(NSString*)textForKey:(NSString*)key group:(NSString*)group language:(NSString*)language;
+
+/**
+ @method textForKey:group:language:
+ @abstract return the text stored in the dictionary in the given group
+ This method provide strong checking and logging to the console or in a log file.
+ @param key The key of the text to load in the TOC dictionary
+ @param group The group in the TOC dictionary - Pass NULL to search in the TOC root
+ @param language The language of the resource - Pass NULL to search for default language
+ @return The text for given key, as a NSString*
+ */
+
+-(NSString*)textForKey:(NSString*)key group:(NSString*)group language:(NSString*)language;
+
+#pragma mark - Image Loading
+
+/**
+ @method imageForKey:
+ @abstract return the image with name stored in the dictionary, at root level
+ This method provide strong checking and logging to the console or in a log file.
+ This static method is called on the shared instance.
+ @param key The key of the image to load in the TOC dictionary
+ @return The image for given key, as a UIImage*
+ */
+
++(UIImage*)imageForKey:(NSString*)key;
+
+/**
+ @method imageForKey:
+ @abstract return the image with name stored in the dictionary, at root level
+ This method provide strong checking and logging to the console or in a log file.
+ @param key The key of the image to load in the TOC dictionary
+ @return The image for given key, as an UIImage*
+ */
+
+-(UIImage*)imageForKey:(NSString*)key;
+
+/**
+ @method imageForKey:
+ @abstract return the image with name stored in the dictionary in the given group
+ This method provide strong checking and logging to the console or in a log file.
+ This static method is called on the shared instance.
+ @param key The key of the image to load in the TOC dictionary
+ @param group The group in the TOC dictionary - Pass NULL to search in the TOC root
+ @param language The language of the resource - Pass NULL to search for default language
+ @return The image for given key, as an UIImage*
+ */
+
++(UIImage*)imageForKey:(NSString*)key group:(NSString*)group language:(NSString*)language;
+
+/**
+ @method imageForKey:
+ @abstract return the image with name stored in the dictionary in the given group
+ This method provide strong checking and logging to the console or in a log file.
+ @param key The key of the image to load in the TOC dictionary
+ @param group The group in the TOC dictionary - Pass NULL to search in the TOC root
+ @param language The language of the resource - Pass NULL to search for default language
+ @return The image for given key, as an UIImage*
+ */
+
+-(UIImage*)imageForKey:(NSString*)key group:(NSString*)group language:(NSString*)language;
+
+/**
+ @property tocDictionaryName
+ @abstract Name of the toc dictionary, located in ResGetter base directory, or bundle root
+ */
+
+@property(nonatomic,strong) NSString* tocDictionaryName;
+
+/**
+ @property defaultLanguage
+ @abstract Default language used for texts. If a TOC entry value does not exists for a requested language, the value for default language is returned
+ @warning For localized entry, value must be defined at least for default language
+ */
+
+@property(nonatomic,strong) NSString* defaultLanguage;
 
 @end

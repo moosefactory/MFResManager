@@ -29,8 +29,8 @@
  */
 
 
-/**
- @header
+/*!
+@header
 @abstract
  Logging to console and file.
 @discussion
