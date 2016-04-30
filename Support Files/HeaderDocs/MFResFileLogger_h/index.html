@@ -260,8 +260,17 @@ function disclosure_triangle(elt) {
 <tr><td scope="row"><b>Includes:</b></td><td><div style="margin-bottom:1px"><div class="content_text"><!-- a logicalPath="//apple_ref/doc/header/Foundation.h" machineGenerated="true" -->&lt;Foundation/Foundation.h&gt;<!-- /a --></div></div></td></tr>
 </table></div>
 <h2>Introduction</h2>
-<p><!-- headerDoc=abstract;uid=//apple_ref/doc/header/MFResFileLogger.h;name=start --><!-- begin abstract -->Use the links in the table of contents to the left to access the documentation.<br>
+<p><!-- headerDoc=abstract;uid=//apple_ref/doc/header/MFResFileLogger.h;name=start --><!-- begin abstract --><p>Logging to console and file.
 <!-- end abstract --><!-- headerDoc=abstract;uid=//apple_ref/doc/header/MFResFileLogger.h;name=end --></p>
+<h5 class="tight"><font face="Lucida Grande,Helvetica,Arial">Discussion</font></h5>
+<!-- begin discussion --><!-- headerDoc=discussion;uid=//apple_ref/doc/header/MFResFileLogger.h;name=start --><p>MFResFileLogger is a simple logging class.
+It works like NSLog(). Call MFRlog(args) or MFRFileLog(file_name,args) to log to file 'file_name'
+</p>
+<p>Set the UIFileSharingEnabled options in your project info to access logs in iTunes, in the application documents section
+@groupindex MFResManager
+</p>
+<p>## Version information
+<!-- headerDoc=discussion;uid=//apple_ref/doc/header/MFResFileLogger.h;name=end --><!-- end discussion -->
 <hr class="afterClassOrHeaderInfo"><br><a name="HeaderDoc_pdefines"></a>
 <h2 class="h2tight">Macro Definitions</h2>
 <dl>
@@ -275,17 +284,9 @@ function disclosure_triangle(elt) {
 <pre><!-- headerDoc=declaration;uid=//apple_ref/c/macro/MFRLog;name=start --> <span class="preprocessor">#define</span> <!-- a logicalPath="//apple_ref/c/cl/MFRLog //apple_ref/c/tdef/MFRLog //apple_ref/c/tag/MFRLog //apple_ref/c/struct/MFRLog //apple_ref/c/intf/MFRLog //apple_ref/c/econst/MFRLog //apple_ref/c/data/MFRLog //apple_ref/c/clconst/MFRLog //apple_ref/c/instm/MFRLog //apple_ref/c/clm/MFRLog //apple_ref/c/intfcm/MFRLog //apple_ref/c/intfm/MFRLog //apple_ref/c/func/MFRLog //apple_ref/c/ftmplt/MFRLog //apple_ref/c/defn/MFRLog //apple_ref/c/macro/MFRLog //apple_ref/doc/com/intfm/MFRLog //apple_ref/doc/anysymbol/MFRLog" machineGenerated="true" --><span class="preprocessor">MFRLog</span><!-- /a --><span class="preprocessor">(</span><span class="preprocessor">.</span><span class="preprocessor">.</span><span class="preprocessor">.</span><span class="preprocessor">)</span> <span class="preprocessor">[</span><!-- a logicalPath="//apple_ref/c/cl/MFResFileLogger //apple_ref/c/tdef/MFResFileLogger //apple_ref/c/tag/MFResFileLogger //apple_ref/c/struct/MFResFileLogger //apple_ref/c/intf/MFResFileLogger //apple_ref/c/econst/MFResFileLogger //apple_ref/c/data/MFResFileLogger //apple_ref/c/clconst/MFResFileLogger //apple_ref/c/instm/MFResFileLogger //apple_ref/c/clm/MFResFileLogger //apple_ref/c/intfcm/MFResFileLogger //apple_ref/c/intfm/MFResFileLogger //apple_ref/c/func/MFResFileLogger //apple_ref/c/ftmplt/MFResFileLogger //apple_ref/c/defn/MFResFileLogger //apple_ref/c/macro/MFResFileLogger //apple_ref/doc/com/intfm/MFResFileLogger //apple_ref/doc/anysymbol/MFResFileLogger" machineGenerated="true" --><span class="preprocessor">MFResFileLogger</span><!-- /a --> <!-- a logicalPath="//apple_ref/c/cl/log //apple_ref/c/tdef/log //apple_ref/c/tag/log //apple_ref/c/struct/log //apple_ref/c/intf/log //apple_ref/c/econst/log //apple_ref/c/data/log //apple_ref/c/clconst/log //apple_ref/c/instm/log //apple_ref/c/clm/log //apple_ref/c/intfcm/log //apple_ref/c/intfm/log //apple_ref/c/func/log //apple_ref/c/ftmplt/log //apple_ref/c/defn/log //apple_ref/c/macro/log //apple_ref/doc/com/intfm/log //apple_ref/doc/anysymbol/log" machineGenerated="true" --><span class="preprocessor">log</span><!-- /a --><span class="preprocessor">:</span><!-- a logicalPath="//apple_ref/c/cl/__VA_ARGS__ //apple_ref/c/tdef/__VA_ARGS__ //apple_ref/c/tag/__VA_ARGS__ //apple_ref/c/struct/__VA_ARGS__ //apple_ref/c/intf/__VA_ARGS__ //apple_ref/c/econst/__VA_ARGS__ //apple_ref/c/data/__VA_ARGS__ //apple_ref/c/clconst/__VA_ARGS__ //apple_ref/c/instm/__VA_ARGS__ //apple_ref/c/clm/__VA_ARGS__ //apple_ref/c/intfcm/__VA_ARGS__ //apple_ref/c/intfm/__VA_ARGS__ //apple_ref/c/func/__VA_ARGS__ //apple_ref/c/ftmplt/__VA_ARGS__ //apple_ref/c/defn/__VA_ARGS__ //apple_ref/c/macro/__VA_ARGS__ //apple_ref/doc/com/intfm/__VA_ARGS__ //apple_ref/doc/anysymbol/__VA_ARGS__" machineGenerated="true" --><span class="preprocessor">__VA_ARGS__</span><!-- /a --><span class="preprocessor">]</span> <!-- headerDoc=declaration;uid=//apple_ref/c/macro/MFRLog;name=end --></pre>
 </div>
 <h5 class="tight"><font face="Lucida Grande,Helvetica,Arial">Discussion</font></h5>
-<!-- begin discussion --><!-- headerDoc=discussion;uid=//apple_ref/c/macro/MFRLog;name=start --><p>MFResFileLogger is a simple logging class. It works like NSLog(). Call MFRlog(args) or MFRFileLog(file,args) to log to file
-</p>
-<p>## Version information
-</p>
-<p>__Version__: 1.0.0
-</p>
-<p>__Last update__: 2016/04/29
-</p>
-<p>__Developer__:  Tristan Leblanc - MooseFactory Software.
-</p>
-
+<!-- begin discussion --><!-- headerDoc=discussion;uid=//apple_ref/c/macro/MFRLog;name=start --><p>__Version__: 1.0.0
+__Last update__: 2016/04/29
+__Developer__:  Tristan Leblanc , MooseFactory Software.
 <!-- headerDoc=discussion;uid=//apple_ref/c/macro/MFRLog;name=end --><!-- end discussion -->
 <p class="gapBeforeFooter">&nbsp;</p><hr class="afterFooter"><div class="hd_copyright_and_timestamp">
 <p class="hd_timestamp">Last Updated: Saturday, April 30, 2016

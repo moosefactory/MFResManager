@@ -86,13 +86,13 @@ static NSArray* imageTypes;
 
 -(NSString*)pathForResource:(NSString*)name ofType:(NSString*)type
 {
-    NSString* path = [self.bundle pathForResource:name ofType:type inDirectory:self.directoryPath];
+    NSString* path = [self.bundle pathForResource:name ofType:type inDirectory:self.baseDirectoryPath];
     if (!path && MFResSearchRoot) {
         path = [self.bundle pathForResource:name ofType:type];
     }
     if (!path && MFResLog ) {
         MFRLog(@"Missing Ressource In Bundle '%@' - File : %@",self.bundle.bundleIdentifier,
-               [NSString stringWithFormat:@"%@/%@.%@",self.directoryPath ? self.directoryPath : @"", name, type]);
+               [NSString stringWithFormat:@"%@/%@.%@",self.baseDirectoryPath ? self.baseDirectoryPath : @"", name, type]);
         if ( MFResBreaks ) {
             assert(path);
         }
@@ -149,7 +149,7 @@ static NSArray* imageTypes;
 
 // No Log Methods
 
--(UIImage*)imageWithPath:(NSString*)path log:(BOOL)log  returnsDefault:(BOOL)returnsDefault
+-(UIImage*)imageWithPath:(NSString*)path log:(BOOL)log returnsDefault:(BOOL)returnsDefault
 {
     UIImage* image = [MFResCache cachedResourceWithPath:path];
     if (!image) {
@@ -186,7 +186,7 @@ static NSArray* imageTypes;
     if ([firstChar isEqualToString:@"/"]) {
         path = finalPath = [path substringFromIndex:1];
     } else {
-        finalPath = self.directoryPath ? [self.directoryPath stringByAppendingPathComponent:path] : path;
+        finalPath = self.baseDirectoryPath ? [self.baseDirectoryPath stringByAppendingPathComponent:path] : path;
     }
     
     NSString* bundlePath = [self.bundle.bundlePath stringByAppendingPathComponent:finalPath];

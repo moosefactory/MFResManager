@@ -29,12 +29,13 @@
  */
 
 
-/*!
+/**
  @discussion MFResCache implements a simple cache. Cached object are stored in a dictionary with the path as key.
  A hits property is also incremented each time the object is accessed in the cache.
  
  ## Version information
- 
+ */
+/**
  __Version__: 1.0.0
  
  __Last update__: 2016/04/29

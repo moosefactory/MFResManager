@@ -16,4 +16,4 @@ headerdoc2html -p -j ../MFResManager/MFKeyResGetter.h -o HeaderDocs
 
 ./appledoc.sh
 
-cp ~/help/MooseFactory\ Software/MFResManager ~/Library/Developer/Shared/Documentation/DocSets
+cp -R ~/help/MooseFactory\ Software/MFResManager ~/Library/Developer/Shared/Documentation/DocSets

@@ -29,19 +29,28 @@
  */
 
 
-/*!
- @discussion MFResFileLogger is a simple logging class. It works like NSLog(). Call MFRlog(args) or MFRFileLog(file,args) to log to file
+/**
+ @header
+@abstract
+ Logging to console and file.
+@discussion
+ MFResFileLogger is a simple logging class.
+ It works like NSLog(). Call MFRlog(args) or MFRFileLog(file_name,args) to log to file 'file_name'
+ 
+ Set the UIFileSharingEnabled options in your project info to access logs in iTunes, in the application documents section
+@groupindex MFResManager
  
  ## Version information
- 
- __Version__: 1.0.0
- 
- __Last update__: 2016/04/29
- 
- __Developer__:  Tristan Leblanc - MooseFactory Software.
- 
-  
- */
+*/
+
+/**
+__Version__: 1.0.0
+__Last update__: 2016/04/29
+__Developer__:  Tristan Leblanc , MooseFactory Software.
+*/
+/**
+ ## Methods
+*/
 
 #import <Foundation/Foundation.h>
 

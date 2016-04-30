@@ -28,12 +28,13 @@
  THE SOFTWARE.
  */
 
-
-/*!
+/** 
  @discussion MFKeyResGetter implements an access to localized ressources through a TOC mechanism.
  
  ## Version information
- 
+ */
+
+/**
  __Version__: 1.0.0
  
  __Last update__: 2016/04/29
@@ -41,8 +42,7 @@
  __Developer__:  Tristan Leblanc - MooseFactory Software.
  
  ## Methods
- 
-*/
+ */
 
 #import <UIKit/UIKit.h>
 
