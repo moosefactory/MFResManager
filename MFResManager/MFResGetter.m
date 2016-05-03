@@ -179,21 +179,32 @@ static NSArray* audioTypes;
         return NULL;
     }
     
-    NSString* firstChar = [path substringToIndex:1];
-    NSString* finalPath = NULL;
-    if ([firstChar isEqualToString:@"/"]) {
-        path = finalPath = [path substringFromIndex:1];
-    } else {
-        finalPath = self.baseDirectoryPath ? [self.baseDirectoryPath stringByAppendingPathComponent:path] : path;
+    NSString* fullPath = NULL;
+    NSURL* url = NULL;
+    
+    if ([path containsString:self.bundle.bundlePath]) {
+        NSString* firstChar = [path substringToIndex:1];
+        NSString* finalPath = NULL;
+        if ([firstChar isEqualToString:@"/"]) {
+            path = finalPath = [path substringFromIndex:1];
+        } else {
+            finalPath = self.baseDirectoryPath ? [self.baseDirectoryPath stringByAppendingPathComponent:path] : path;
+        }
+        
+        fullPath = [self.bundle.bundlePath stringByAppendingPathComponent:finalPath];
+        
+        url = [NSURL fileURLWithPath:fullPath];
+        
+        if (!url && MFResSearchRoot && ![path isEqualToString:finalPath]) {
+            fullPath = [self.bundle.bundlePath stringByAppendingPathComponent:path];
+            url = [NSURL fileURLWithPath:fullPath];
+        }
+    }
+    else {
+        fullPath = path;
+        url = [NSURL fileURLWithPath:fullPath];
     }
     
-    NSString* bundlePath = [self.bundle.bundlePath stringByAppendingPathComponent:finalPath];
-    NSURL* url = [NSURL fileURLWithPath:bundlePath];
-    
-    if (!url && MFResSearchRoot && ![path isEqualToString:finalPath]) {
-        bundlePath = [self.bundle.bundlePath stringByAppendingPathComponent:path];
-        url = [NSURL fileURLWithPath:bundlePath];
-    }
     
     if ( log && MFResLog && !url) {
         MFRFileLog(@"ResGetter.log",@"ERROR - fileURLWithPath - URL is NULL for Path \"%@\"",path);

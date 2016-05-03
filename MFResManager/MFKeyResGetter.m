@@ -170,7 +170,7 @@
 
 -(NSString*)textForKey:(NSString*)key group:(NSString*)group language:(NSString*)language
 {
-    id object = [[MFKeyResGetter defaultMediaGetter] entryForKey:key group:group language:language];
+    id object = [self entryForKey:key group:group language:language];
     if ([object isKindOfClass:[NSString class]]) {
         return (NSString*)object;
     }

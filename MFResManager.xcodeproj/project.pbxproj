@@ -89,8 +89,8 @@
 				BC0DD07F1CD4236000F7500A /* CONTRIBUTE.md */,
 				BC0DD0801CD4236000F7500A /* LICENSE */,
 				BC0DD0A21CD4237900F7500A /* readme.md */,
-				BC310E0A1CD529F0009CE91B /* Appledoc */,
 				BC310E331CD52A0E009CE91B /* MFResManager.podspec */,
+				BC310E0A1CD529F0009CE91B /* Appledoc */,
 				BCF361821CD331F9001A5245 /* MFResManager */,
 				BCF3618E1CD331F9001A5245 /* MFResManagerTests */,
 				BCF361811CD331F9001A5245 /* Products */,
@@ -217,6 +217,7 @@
 					};
 					BCF3617F1CD331F9001A5245 = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = VMXFN634RR;
 					};
 					BCF361891CD331F9001A5245 = {
 						CreatedOnToolsVersion = 7.3;
