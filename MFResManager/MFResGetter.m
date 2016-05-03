@@ -150,14 +150,13 @@ static NSArray* audioTypes;
         if (directory) {
             image = [self imageWithPath:[NSString stringWithFormat:@"%@/%@.%@",directory,name,fileType] log:NO returnsDefault:NO];
             if (image) break;
-            else {
-                image = [self imageWithPath:[NSString stringWithFormat:@"%@.%@",name,fileType] log:NO returnsDefault:NO];
-                if (image) break;
-                else {
-                    image = [self imageWithPath:[NSString stringWithFormat:@"/%@.%@",name,fileType] log:NO returnsDefault:NO];
-                    if (image) break;
-                }
-            }
+        }
+        
+        image = [self imageWithPath:[NSString stringWithFormat:@"%@.%@",name,fileType] log:NO returnsDefault:NO];
+        if (image) break;
+        else {
+            image = [self imageWithPath:[NSString stringWithFormat:@"/%@.%@",name,fileType] log:NO returnsDefault:NO];
+            if (image) break;
         }
     }
     
@@ -218,7 +217,7 @@ static NSArray* audioTypes;
     NSString* fullPath = NULL;
     NSURL* url = NULL;
     
-    if ([path containsString:self.bundle.bundlePath]) {
+    if (![path containsString:self.bundle.bundlePath]) {
         NSString* firstChar = [path substringToIndex:1];
         NSString* finalPath = NULL;
         if ([firstChar isEqualToString:@"/"]) {
