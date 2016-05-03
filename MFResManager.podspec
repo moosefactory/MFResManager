@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "MFResManager"
-  s.version          = "1.0.0"
+  s.version          = "1.0.0.1"
   s.summary          = "MFResManager is a compact iOS utility library to access ressources in an application."
   s.description      = <<-DESC
 MFResManager is a compact iOS Utility Library to access ressources in an application.
@@ -30,7 +30,7 @@ MFKeyResFileLogger:
   s.homepage         = "https://github.com/moosefactory/MFResManager"
   s.license          = 'MIT'
   s.author           = { "Tristan Leblanc" => "tristan@moosefactory.eu" }
-  s.source           = { :git => "https://github.com/moosefactory/MFResManager.git", :tag => s.version.to_s }
+  s.source           = { :git => "https://github.com/moosefactory/MFResManager.git", :tag => "1.0.0" }
   s.social_media_url = 'https://twitter.com/moosefactory_eu'
 
     s.ios.deployment_target = '7.0'
