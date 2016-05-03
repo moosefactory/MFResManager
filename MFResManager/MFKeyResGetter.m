@@ -103,6 +103,7 @@
     }
     
     NSDictionary* groupDictionary;
+    
     if (group) {
         groupDictionary = (NSDictionary*)[tocDictionary objectForKey:group];
         if ( MFResLog && !groupDictionary) {
@@ -110,6 +111,7 @@
             MFResBreaksNULL(groupDictionary);
         }
     } else groupDictionary = tocDictionary;
+    
     
     id entry = [groupDictionary objectForKey:key];
     if (!entry) {
@@ -220,18 +222,8 @@
         }
     }
     
-    return [self imageNamed:(NSString*)object];
+    return [self imageNamed:(NSString*)object inDirectory:self.useGroupAsDirectory ? group : NULL];
 }
 
-/*
--(NSURL*)videoWithKey:(NSString*)key group:(NSString*)group language:(NSString*)language
-{
-    NSString* string = [self stringForKey:key group:group language:language];
-    if (string) {
-        return [self videoNamed:string];
-    }
-    return NULL;
-}
-*/
 
 @end

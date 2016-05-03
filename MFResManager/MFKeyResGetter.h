@@ -206,4 +206,12 @@
 
 @property(nonatomic,strong) NSString* defaultLanguage;
 
+/**
+ @property useGroupAsDirectory
+ @abstract if set to true, resources are searched in the /BaseDirectory/Group folder
+ */
+
+@property(nonatomic,assign) BOOL useGroupAsDirectory;
+
+
 @end

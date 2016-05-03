@@ -149,6 +149,24 @@ typedef NS_OPTIONS(NSUInteger, MFResGetterBehavior) {
 #pragma mark Image Loading
 
 /**
+ @method imageNamed:inDirectory
+ @abstract System equivalent of imageNamed:
+ This method provide strong checking and logging to the console or in a log file.
+ - ImageNamed: looks for files with the following extensions:
+ png,PNG,jpg,JPG,jpeg,JPEG,tif,TIF,tiff,TIFF
+ - It first searches in the passed directory (if not NULL) in the default getter directory, then in the default getter directory, and finally in the bundle root ( if MFResGetterSearchRoot is set ).
+ - If no image is found, it can return a default image if MFResGetterUseDefault is set
+ 
+ This is the static version of the method, so it is called on the MFResGetter default shared instance.
+ 
+ @param name The name to the resource to load ( without extension ).
+ @return An UIImage.
+ */
+
+
++(UIImage*)imageNamed:(NSString*)name inDirectory:(NSString*)directory;
+
+/**
  @method imageNamed:
  @abstract System equivalent of imageNamed:
  This method provide strong checking and logging to the console or in a log file.
@@ -215,6 +233,21 @@ typedef NS_OPTIONS(NSUInteger, MFResGetterBehavior) {
  */
 
 -(UIImage*)imageNamed:(NSString*)name;
+
+/**
+ @method imageNamed:inDirectory
+ @abstract System equivalent of imageNamed:
+ This method provide strong checking and logging to the console or in a log file.
+ - ImageNamed: looks for files with the following extensions:
+ png,PNG,jpg,JPG,jpeg,JPEG,tif,TIF,tiff,TIFF
+ - It first searches in the passed directory (if not NULL) in the default getter directory, then in the default getter directory, and finally in the bundle root ( if MFResGetterSearchRoot is set ).
+ - If no image is found, it can return a default image if MFResGetterUseDefault is set
+ @param name The name to the resource to load ( without extension ).
+ @return An UIImage.
+ */
+
+
+-(UIImage*)imageNamed:(NSString*)name inDirectory:(NSString*)directory;
 
 /**
  @method imageWithPath:

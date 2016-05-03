@@ -118,20 +118,50 @@ static NSArray* audioTypes;
     for (NSString* fileType in imageTypes) {
         image = [self imageWithPath:[NSString stringWithFormat:@"%@.%@",name,fileType] log:NO returnsDefault:NO];
         if (image) break;
-    }
-    if ( !image && MFResSearchRoot ) {
-        for (NSString* fileType in imageTypes) {
+        else {
             image = [self imageWithPath:[NSString stringWithFormat:@"/%@.%@",name,fileType] log:NO returnsDefault:NO];
             if (image) break;
         }
     }
+    
     if ( !image && MFResLog ) {
         MFRFileLog( MFResFileLog ? @"MissingImages.log" : NULL, @"Missing Image In Bundle '%@' - File : %@",self.bundle.bundleIdentifier, [NSString stringWithFormat:@"%@",name]);
         if ( MFResBreaks ) {
             assert(image);
         }
     }
+    
+    if ( !image && MFResUseDefault ) {
+        image = [self defaultImage];
+    }
+    return image;
+}
 
+-(UIImage*)imageNamed:(NSString*)name inDirectory:(NSString*)directory
+{
+    UIImage *image=NULL;
+    for (NSString* fileType in imageTypes) {
+        if (directory) {
+            image = [self imageWithPath:[NSString stringWithFormat:@"%@/%@.%@",directory,name,fileType] log:NO returnsDefault:NO];
+            if (image) break;
+            else {
+                image = [self imageWithPath:[NSString stringWithFormat:@"%@.%@",name,fileType] log:NO returnsDefault:NO];
+                if (image) break;
+                else {
+                    image = [self imageWithPath:[NSString stringWithFormat:@"/%@.%@",name,fileType] log:NO returnsDefault:NO];
+                    if (image) break;
+                }
+            }
+        }
+    }
+    
+    if ( !image && MFResLog ) {
+        MFRFileLog( MFResFileLog ? @"MissingImages.log" : NULL, @"Missing Image In Bundle '%@' - File : %@",self.bundle.bundleIdentifier, [NSString stringWithFormat:@"%@",name]);
+        if ( MFResBreaks ) {
+            assert(image);
+        }
+    }
+    
     if ( !image && MFResUseDefault ) {
         image = [self defaultImage];
     }
@@ -158,7 +188,7 @@ static NSArray* audioTypes;
                 image = [UIImage imageWithData:imageData];
             }
             if ( image ) {
-                if (image != [self defaultImage]) {
+                if ( MFResUseDefault && (image != [self defaultImage]) ) {
                     [MFResCache cacheResource:image withPath:path];
                 }
             } else if ( MFResUseDefault && returnsDefault) {
