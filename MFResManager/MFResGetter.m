@@ -106,6 +106,12 @@ static NSArray* audioTypes;
     return [[MFResGetter defaultMediaGetter] imageNamed:name];
 }
 
++(UIImage*)imageNamed:(NSString*)name inDirectory:(NSString*)directory
+{
+    return [[MFResGetter defaultMediaGetter] imageNamed:name inDirectory:directory];
+
+}
+
 +(UIImage*)imageWithPath:(NSString*)path
 {
     return [[MFResGetter defaultMediaGetter] imageWithPath:path];
