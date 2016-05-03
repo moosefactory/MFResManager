@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "MFResManager"
-  s.version          = "1.0.0"
+  s.version          = "1.0.1"
   s.summary          = "MFResManager is a compact iOS utility library to access ressources in an application."
   s.description      = <<-DESC
 MFResManager is a compact iOS Utility Library to access ressources in an application.
